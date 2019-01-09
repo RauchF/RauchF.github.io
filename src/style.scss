@@ -1,0 +1,33 @@
+@import "normalize";
+@import "typebase";
+
+html {
+    font-size: 110%;
+}
+
+#wrap {
+    align-items: center;
+    display: flex;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
+    height: 100vh;
+    align-content: center;
+    text-align: center;
+}
+
+header,
+main {
+    box-sizing: border-box;
+    min-width: 100%;
+    padding: 1rem;
+}
+
+small {
+    color: #454545;
+}
+
+@media screen and (min-width: 720px) {
+    html {
+        font-size: 120%;
+    }
+}
