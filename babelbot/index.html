@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<!-- 🇺🇦 -->
+<html>
+<head>
+  <title>Introducing BabelBot | Felix Rauch</title>
+  
+  <style>
+  /*! Typebase.less v0.1.0 | MIT License */
+  /* Setup */
+  html {
+    /* Change default typefaces here */
+    font-family: serif;
+    font-size: 137.5%;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Copy & Lists */
+  p {
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+  ul,
+  ol {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  ul li,
+  ol li {
+    line-height: 1.5rem;
+  }
+  ul ul,
+  ol ul,
+  ul ol,
+  ol ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  blockquote {
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    /* Change heading typefaces here */
+    font-family: sans-serif;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    line-height: 1.5rem;
+  }
+  h1 {
+    font-size: 3.242rem;
+    line-height: 3.5rem;
+    margin-top: 3rem;
+  }
+  h2 {
+    font-size: 1.828rem;
+    line-height: 2rem;
+    margin-top: 3rem;
+  }
+  h3 {
+    font-size: 1.414rem;
+  }
+  h4 {
+    font-size: 0.707rem;
+  }
+  h5 {
+    font-size: 0.4713333333333333rem;
+  }
+  h6 {
+    font-size: 0.3535rem;
+  }
+  /* Tables */
+  table {
+    margin-top: 1.5rem;
+    border-spacing: 0px;
+    border-collapse: collapse;
+  }
+  table td,
+  table th {
+    padding: 0;
+    line-height: 33px;
+  }
+  /* Code blocks */
+  code {
+    vertical-align: bottom;
+  }
+  /* Leading paragraph text */
+  .lead {
+    font-size: 1.414rem;
+  }
+  /* Hug the block above you */
+  .hug {
+    margin-top: 0;
+  }
+
+  footer {
+    font-size: 0.85rem;
+  }
+
+  p code {
+    padding: 0.2rem;
+  }
+
+  /* Colors */
+  :root {
+    --background-color: #f7ebe6;
+    --text-color: #111;
+    --headline-color: #1a2830;
+    --link-color-normal: #3e2016;
+    --link-color-visited: #3e2c16;
+    --link-color-active: #2c1c08;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #09202D;
+      --text-color: #e7dbd6;
+      --headline-color: #f7ce3e;
+      --link-color-normal: #A39259;
+      --link-color-visited: #A39259;
+      --link-color-active: #67571F;
+    }
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--headline-color);
+  }
+
+  a {
+    color: var(--link-color-normal);
+  }
+
+  a:visited {
+    color: var(--link-color-visited);
+  }
+
+  a:hover, a:focus, a:active
+  {
+    color: var(--link-color-active);
+  }
+
+  /* General layout */
+  @media not print {
+    article, footer {
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 45px;
+    }
+
+    @media (max-width: 767px) {
+      article, footer {
+        padding: 15px;
+      }
+    }
+  }
+  </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+</head>
+<body>
+  <article data-typesettings>
+    <h1 id="top">BabelBot</h1>
+
+    <p>A Telegram bot for enabling self-hosted, low-bandwidth, asynchronous access to high quality translation APIs</p>
+
+    <p>
+      <a href="https://github.com/RauchF/BabelBot" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="112" height="20" role="img" aria-label="source on GitHub"><title>source on GitHub</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="112" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="47" height="20" fill="#555"/><rect x="47" width="65" height="20" fill="#007ec6"/><rect width="112" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="245" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="370">source</text><text x="245" y="140" transform="scale(.1)" fill="#fff" textLength="370">source</text><text aria-hidden="true" x="785" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="550">on GitHub</text><text x="785" y="140" transform="scale(.1)" fill="#fff" textLength="550">on GitHub</text></g></svg></a>
+    </p>
+
+    <p>
+      <img src="preview.png" alt="A screenshot of a Telegram conversation with BabelBot" />
+    </p>
+
+    <h2 id="motivation">Motivation</h2>
+    
+    <p>A friend of mine recently approached me and told me about demand from volunteers who are aiding the people currently fleeing the Russian invasion of Ukraine. They needed to be able to quickly translate messages from various languages, and the existing apps (Google Translate comes to mind) did not cut it due to spotty or slow mobile internet connections. He came up with the idea of using a Telegram bot, to allow reliable access, even with only minimal internet connectivity, as Telegram is already widely used both among those in need of aid and those helping and works well with low-bandwidth or unstable internet connections.</p>
+    
+    <p>In response I whipped up <a href="https://github.com/RauchF/BabelBot" target="_blank">BabelBot</a>. While certainly still a bit buggy, and there's still some features I plan to add, interested folk and helpers anywhere can download and host it on their own hardware. It requires very little bandwidth, no network configuration, and runs on Windows, Linux, and any platform that runs .NET Core 6.0 (I've only personally tested Windows x64 and Linux x64 though, but it should run on macOS too). You can host it on your Raspberry Pi or on your home computer or laptop, either permanently or just whenever you know you'll need it. If you have access to a VPS, a dedicated server, or some sort of PaaS, as long as it can run .NET Core, it can run this.</p>
+    
+    <h2 id="gettingstarted">Getting Started</h2>
+    
+    <p>To get BabelBot running, you will need the following:</p>
+    
+    <ul>
+    <li>An account for the DeepL API</li>
+    <li>A bot registered with Telegram's BotFather</li>
+    <li>Your Telegram user ID and the IDs of any other user that will be able to trigger your bot</li>
+    <li>BabelBot itself</li>
+    </ul>
+    
+    <p>BabelBot is not quite turnkey yet, as there's no configuration tool – and while the README file explains the technicalities, it's probably a bit too technical for many of the people who actually need it right now. So in the following, I will walk you through each these steps, followed by configuring and running the bot.</p>
+    
+    <h3 id="registeringfordeeplapiaccess">Registering for DeepL API access</h3>
+    
+    <p><a href="https://deepl.com" target="_blank">DeepL</a> is a fantastic translation service, supporting extremely high quality machine translations for a growing number of languages. You can try them for yourself right on the website. They also offer an API to automate translation tasks &ndash; up to 500,000 characters per month are included in their free tier. Beyond that, the prices are (in my opinion) fairly reasonable and you can set up hard limits.</p>
+    
+    <p>Head over to the <a href="https://www.deepl.com/pro-api" target="_blank">API homepage</a> and scroll down until you reach the plans. There you can find the sign up link.</p>
+    
+    <p>Finish the sign-up procedure, and log into your new account. Head over to the "Account" tab (or <a href="https://www.deepl.com/pro-account/plan" target="_blank">try this link</a>), and scroll down. There you'll find your <strong>Authentication Key</strong>. You'll need this later.</p>
+    
+    <h3 id="registeringthebot">Registering the bot</h3>
+    
+    <p>Use the following link to contact the official BotFather bot, which is used to register your bot with Telegram.</p>
+    
+    <p><a href="https://t.me/botfather" target="_blank">Telegram: Contact @botfather</a></p>
+    
+    <p>If the above link doesn't work for you, you can also search <strong>@botfather</strong> on Telegram, make sure it has the "verified" checkmark.</p>
+    
+    <p>Start the conversation and in the command list, select (or type):</p>
+    
+    <blockquote>
+      <p>/newbot</p>
+    </blockquote>
+    
+    <p>BotFather will then ask you for a name for your bot. This can be anything you like. Afterwards, you'll be asked to choose a username. This one can't contain spaces and must have a name ending in "bot".</p>
+    
+    <p>Once you're done choosing a name, BotFather will congratulate you on your new bot and give you your <strong>API Token</strong>. You'll also need this later on.</p>
+    
+    <h3 id="downloadingbabelbot">Downloading BabelBot</h3>
+    
+    <p>In this example, we'll be using Windows, but you should be able to follow along for the most part. You'll of course need to download the appropriate package for your architecture, but the rest of the steps should not be too different.</p>
+    
+    <p>You can find the latest prebuilt release of <a href="https://github.com/RauchF/BabelBot/releases/latest" target="_blank">BabelBot on GitHub</a>. Open the "Assets" bar and download the file named <code>BabelBot_[version]_win-x64.zip</code> . At the time of writing this, this is still v0.0.1-alpha &ndash; if the rest of the steps change in future versions, I will update this page accordingly.</p>
+    
+    <h3 id="extractingandconfiguringbabelbot">Extracting and configuring BabelBot</h3>
+    
+    <p>Extract the downloaded file to a location of your choosing. Navigate to the location where you extracted it, and open the file <code>appsettings.json</code> in any editor &ndash; Notepad should suffice.</p>
+    
+    <p>Find the line with the <code>AuthKey</code> key under the <code>DeepL</code> section, and set the AuthKey to the DeepL API authentication key from earlier. It should look like this:</p>
+    
+    <pre><code>    "AuthKey": "c123456e-acdc-1234-4711-b12355645af7a:fx"
+    </code></pre>
+    
+    <p>Next, find the <code>ApiKey</code> under <code>Telegram</code>, and set it to the Token obtained earlier from BotFather. It should look like this:</p>
+    
+    <pre><code>    "ApiKey": "1234567890:AABBjkaUdErWeLsCh5vAfOoBaRXPqux125aWA",
+    </code></pre>
+    
+    <p>While the bot technically now has all it needs to run, you won't be able to do much with it, as no users are configured to be allowed to interact with it. This was a deliberate choice for the first release, as I believe it will be very difficult to keep some control of the DeepL API usage quotas, and it might lead to "spammy" behaviour if the bot is added to a group. So, we need to find out your user ID.</p>
+    
+    <h3 id="findingoutyouruserid">Finding out your User ID</h3>
+    
+    <p>The easiest way is probably to <a href="https://t.me/userinfobot" target="_blank">contact @userinfobot</a> on Telegram. It will respond to your message with your public user information, including the ID we're looking for.</p>
+    
+    <p>For any other users you wish to add, either ask them for their User ID or ask them for permission to forward one of their messages to @userinfobot.</p>
+    
+    <p>Add the IDs of the users to the <code>AllowedUsers</code> line in the settings file, separated by comma. It should look like this:</p>
+    
+    <pre><code>    "AllowedUsers": [47110815,123456789]
+    </code></pre>
+    
+    <p>or, if you only have one user, like this:</p>
+    
+    <pre><code>    "AllowedUsers": [123456789]
+    </code></pre>
+    
+    <p>Now we're finally ready to go!</p>
+    
+    <h3 id="runningthebot">Running the bot</h3>
+    
+    <p>To launch the bot, run  <code>BabelBot.Worker.exe</code> (or just <code>BabelBot.Worker</code> on Linux).</p>
+    
+    <p>You should see output similar to this:</p>
+    
+    <pre><code>info: BabelBot.Worker.Worker[0]
+      Starting receiver TelegramReceiver
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\chump\Downloads\BabelBot-win-x64
+    </code></pre>
+    
+    <p>If you don't see any errors, great! That means you can head into Telegram, search for your bot (by username works best) and start a conversation with it. It should reply to any message you send in any of DeepL's supported languages its best attempt at a translation.</p>
+    
+    <h3 id="changingthetargetlanguage">Changing the target language</h3>
+    
+    <p>By default, BabelBot translates into UK English, but you can change this in the <code>appsettings.json</code> as well. Add the following line <strong>before</strong> the <code>AuthKey</code> line from earlier:</p>
+    
+    <pre><code>    "DefaultTargetLanguageCode": "en-GB",
+    </code></pre>
+    
+    <p>Replace <code>en-GB</code> with the language code of your choice. You can find the supported language codes in the DeepL API documentation <a href="https://www.deepl.com/docs-api/translating-text/request/" target="_blank">found here</a>. Look in the <code>target_lang</code>section. Note that the "unspecified variants" of English and Portuguese do not work - you'll need to pick either <code>en-GB</code>/<code>en-US</code> or <code>pt-PT</code>/<code>pt-BR</code> respectively. </p>
+    
+    <h3 id="caveats">Caveats</h3>
+    
+    <p>Currently, only pure text messages are supported. Messages with attachments do not yet work, but are high on the list.</p>
+    
+    <p>Also, Ukrainian is not officially supported. However, I can personally attest pretty good results with feeding Ukrainian text into the API using source language auto detection. Hopefully, DeepL will add official support for the Ukrainian language soon.</p>
+    
+    
+    <h2 id="sourcecodeandcallforcontributions">Source Code and Call for Contributions</h2>
+    
+    <p>I've published the source code <a href="https://github.com/RauchF/BabelBot" target="_blank">on GitHub</a> under the permissive <a href="https://choosealicense.com/licenses/mit/" target="_blank">MIT License</a>, allowing anyone to use and modify it for their use case.</p>
+    
+    <p>If you also believe that this is a worthwhile project, code contributions are very welcome! Check the issue tracker for something that might interest you, but your own ideas are also more than welcome. Read <a href="https://github.com/RauchF/BabelBot/blob/main/CONTRIBUTING.md" target="_blank">CONTRIBUTING.md</a> for more information.</p>
+
+    <h3 id="reportingissues">Reporting Issues</h3>
+    
+    <p>This program was made very quickly and is my first "proper" C#/.NET project. Due to this, there likely are several bugs and definitely several missing features. If you happen to stumble upon any, or have a need for any additional features, please <a href="https://github.com/RauchF/BabelBot/issues" target="_blank">create an Issue on GitHub</a>. If you think you have found something serious (read: security-relevant) and wish to wait with publicizing until the issue has been fixed, please contact me at <a href="mailto:babelbot@kaputty.de">babelbot@kaputty.de</a>. </p>
+      
+    <h2 id="closingthoughts">Closing thoughts</h2>
+    
+    <p>I made this program in a hurry, in the hopes that it might be of use to the people currently helping civilians fleeing from a terrible war which is bringing terror over the entire world and currently threatening the lives of countless people forced into a fight they never asked for.</p>
+    
+    <p>Please, if you're not already helping, please consider what you can do to help those in need right now. You can donate to aid organizations like <a href="https://www.doctorswithoutborders.org/" target="_blank">Doctors Without Borders</a>, <a href="https://www.unicef.org/" target="_blank">UNICEF</a>, or to Ukrainian efforts like the <a href="https://www.gofundme.com/f/keep-ukraines-media-going" target="_blank">Keep Ukraine's media going</a> GoFundMe directly. Maybe there are aid efforts organized near you, collecting much-needed goods like clean blankets, first-aid materials, hygiene products, batteries, flashlights, and more.</p>
+    
+    <p>We might not individually be able to stop the madness and these horrible crimes from happening, but we can do our best to stand in solidarity with and help those who are affected.</p>  
+  </article>
+  <footer>
+    <p><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank"><img alt="Creative Commons Zero" src="cc0.svg" /></a>
+      The content of this document is released to the public domain under <a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0 1.0 Universal (CC0 1.0)</a>.<br>
+      <a href="https://choosealicense.com/licenses/mit/" target="_blank"><img alt="MIT License" src="mit.svg" /></a>
+      BabelBot is released under the <a href="https://choosealicense.com/licenses/mit/" target="_blank">MIT License</a>.<br>
+      Written by <a href="https://felixrau.ch">Felix Rauch</a> on February 2nd, 2022.
+    </p>
+  </footer>
+</body>
+</html>
